@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Author Hashghost
+# Program that changes MAC Address
 
 import subprocess
 import optparse
