@@ -27,20 +27,22 @@ def get_arguments():
 
 def change_mac(interface, new_mac):
     print("[+] Changing MAC address for " + interface + " to " + new_mac)
-    subprocess.call(["ifconfig", interface, "down"])
-    subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
-    subprocess.call(["ifconfig", interface, "up"])
+    subprocess.run(["ifconfig", interface, "hw", "ether", new_mac])
+    subprocess.run(["ifconfig", interface, "down"])
+    subprocess.run(["ifconfig", interface, "up"])
 
 def get_current_mac(interface):
     # Reading result
     interface_result = subprocess.check_output(["ifconfig", interface])
-    mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", interface_result)
+    mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", interface_result.decode('utf-8'))
+
     # Checking if the interface has MAC address 
     if mac_address_search_result:
         return mac_address_search_result.group(0)
     else:
         print("[-] Sorry Could not find MAC address")
 
+# Calling all declared functions
 options = get_arguments()
 current_mac = get_current_mac(options.interface)
 print("Current MAC is "+ str(current_mac))
