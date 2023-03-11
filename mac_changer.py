@@ -17,12 +17,14 @@ def get_arguments():
         (options, arguments ) = parser.parse_args()
     '''
     
+    # options will contain eth0 and arguments will contain -i and -m
     (options, arguments) = parser.parse_args()
+
     # If statement condition for error control
     if not options.interface:
         parser.error("[-] Please specify interface, use --help for more information")
     elif not options.new_mac:
-        parser.error("[-] Please specify mac_address, use --help for more information")
+        parser.error("[-] Please specify mac-address, use --help for more information")
     return options
 
 def change_mac(interface, new_mac):
