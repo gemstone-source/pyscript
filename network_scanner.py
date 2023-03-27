@@ -29,4 +29,3 @@ def print_result(result_list):
 
 scan_result = scan("192.168.43.1/24")
 print_result(scan_result)
-
