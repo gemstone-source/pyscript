@@ -15,6 +15,12 @@ def get_arguments():
     parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router IP / Gateway IP')
 
     args = parser.parse_args()
+
+     # If statement condition for error control
+    if not args.target_ip:
+        parser.error("[-] Please specify Victim IP, use --help for more information")
+    elif not args.gateway_ip:
+        parser.error("[-] Please specify Router Gateway, use --help for more information")
     return args
 
 def get_mac(ip):
@@ -44,7 +50,6 @@ def restore(og_source_ip, og_destination_ip):
 '''
 The loop will make the response to persist without terminating and keep spoofing continuosly
 '''
-
 
 # Use variable names as declared in the add_argument example args.target_ip
 args = get_arguments()
