@@ -2,8 +2,9 @@
 # Author Gemstone HashGhost
 
 import scapy.all as scapy 
-import sys,time
+import time
 import argparse
+# import sys
 
 def get_arguments():
     parser =  argparse.ArgumentParser(prog='ProgramName',description='What the program does', epilog='Text at the bottom of help')
@@ -46,8 +47,8 @@ Remember to add cho 1> /proc/sys/net/ipv4/ip_forward to your Linux Machine to al
 '''
 
 # Vaiables for targets
-target_ip = sys.argv[1]
-gateway_ip = sys.argv[2]
+# target_ip = sys.argv[1]
+# gateway_ip = sys.argv[2]
 
 args = get_arguments()
 try:
