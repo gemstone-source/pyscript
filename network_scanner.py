@@ -14,7 +14,7 @@ def scan(ip):
     arp_request = scapy.ARP(pdst=ip) # Obtain the specific ip, "Who has this ip"
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")  # Setting Broadcast MAC 
     arp_request_broadcast = broadcast/arp_request     # Generation new frame by combining both ip and mac
-    answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
+    answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0] # The srp return two lists answered and unswered but i am interested only with answered stored in index 0
 
     clients_list = []
     for element in answered_list:
