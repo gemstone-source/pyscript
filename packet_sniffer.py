@@ -7,4 +7,4 @@ def sniff(interface):
 def sniffed_packets(packet):
    print(packet)
 
-sniff("wlan0")
+sniff("eth0")

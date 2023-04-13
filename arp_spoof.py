@@ -9,7 +9,7 @@ def get_arguments():
     parser =  argparse.ArgumentParser(
         prog='ARP Spoofing',
         description='This program performs Man in the Middle Attack, all the dst fields get victim details and src field gets the fetch detail', 
-        epilog='Remember to add cho 1 > /proc/sys/net/ipv4/ip_forward to your Linux Machine to allow ip forwarding'
+        epilog='Remember to add echo 1 > /proc/sys/net/ipv4/ip_forward to your Linux Machine to allow ip forwarding'
         )
     parser.add_argument('-t', '--target', dest='target_ip',  help='Victim IP')
     parser.add_argument('-g', '--gateway', dest='gateway_ip', help='Router IP / Gateway IP')
