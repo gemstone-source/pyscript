@@ -48,7 +48,7 @@ def restore(og_source_ip, og_destination_ip):
     scapy.send(packet, count=4, verbose=False)
 
 '''
-The loop will make the response to persist without terminating and keep spoofing continuosly
+The loop will make the response to persist without terminating and keep spoofing continuously
 '''
 
 # Use variable names as declared in the add_argument example args.target_ip
