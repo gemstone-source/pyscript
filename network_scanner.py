@@ -7,9 +7,6 @@ import sys
 
 def scan(ip):
     ''' The first ARP will asks for only 0.0.0.0 but no specific ip'''
-    # scapy.ls(scapy.ARP())
-    # arp_request = scapy.ARP()
-    # print(arp_request.summary())
 
     arp_request = scapy.ARP(pdst=ip) # Obtain the specific ip, "Who has this ip"
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")  # Setting Broadcast MAC 
