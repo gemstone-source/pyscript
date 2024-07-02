@@ -19,4 +19,4 @@ jobs:
           args: >
             - Dsonar.organization=hashghost
             - Dsonar.projectKey=hashghost
-            - Dsonar.python.coverage.reportPaths=coverage.xm
+            - Dsonar.python.coverage.reportPaths=coverage.xml
