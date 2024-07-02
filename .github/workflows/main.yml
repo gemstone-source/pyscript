@@ -17,6 +17,6 @@ jobs:
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
         with:
           args: >
-            - Dsonar.organization=hashghost
-            - Dsonar.projectKey=hashghost
-            - Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.organization=hashghost
+            -Dsonar.projectKey=hashghost
+            -Dsonar.python.coverage.reportPaths=coverage.xml
