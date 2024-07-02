@@ -7,6 +7,7 @@ def htb_open_vpn():
     subprocess.run(["sudo","openvpn",path])
 
 def thm_open_vpn():
+    # New demo
     path = os.path.expanduser("~/C7F5/tmh/hashghost.ovpn")
     subprocess.run(["sudo", "openvpn", path])
     
