@@ -1,13 +1,14 @@
 import os,subprocess 
 
 
-def htbOpenVpn():
+def htb_open_vpn():
     # Start normal vpn hackthebox vpn
     path = os.path.expanduser("~/C7F5/htb/openvpn/hashghost.ovpn") # make it an arg
     subprocess.run(["sudo","openvpn",path])
 
-def thmOpenVpn():
+def thm_open_vpn():
+    # New demo
     path = os.path.expanduser("~/C7F5/tmh/hashghost.ovpn")
     subprocess.run(["sudo", "openvpn", path])
     
-htbOpenVpn()
+htb_open_vpn()
