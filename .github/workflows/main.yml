@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - sonacloud
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   DemoSonarCloudScan:
