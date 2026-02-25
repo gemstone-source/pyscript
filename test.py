@@ -57,7 +57,6 @@ def grabber(url,keyword):
                     print(url_join)
                     grabber(url_join,keyword)
 
-
 url = "https://vodacom.co.tz/fwa"
 keyword = "http"
 
