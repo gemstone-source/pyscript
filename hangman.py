@@ -15,8 +15,8 @@ chances = 0
 while not game_over:
     guess = input("Guess a letter: ").lower()
     chances += 1
-    reamining = 5 - chances
-    print(f" You have remained with {reamining} chances.")
+    remaining = 5 - chances
+    print(f" You have remained with {remaining} chances.")
     for position in range(len(secret_word)):
         letter = secret_word[position]
         if letter == guess:

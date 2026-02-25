@@ -22,7 +22,7 @@ def get_spider(url,tag,keyword):
     try:
         response = requests.get(url,headers=headers)
     except:
-        print("Page Not Found:",url)
+        print("Page Not Accessible:",url)
         sys.exit()
 
     if response.status_code == 200:
