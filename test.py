@@ -62,8 +62,6 @@ def grabber(url,keyword):
 
 
 url = "https://vodacom.co.tz/fwa"
-# url = "https://onlinetrading.dse.co.tz/investor-dashboard"
-# url = "https://olas.heslb.go.tz/olams/account/login"
 keyword = "http"
 
 grabber(url,keyword)
