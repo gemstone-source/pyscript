@@ -20,7 +20,7 @@ visited_urls = set()
 
 def get_spider(url,tag,keyword):
     try:
-        response = requests.get(url,headers=headers)
+        response = requests.get(url,headers=headers, timeout=10)
     except:
         print("Page Not Accessible:",url)
         sys.exit()
