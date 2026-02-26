@@ -35,7 +35,7 @@ visited_urls = set()
 
 def grabber(url,keyword):
     try:
-        response = requests.get(url,headers={'User-Agent': 'Mozilla/5.0'})
+        response = requests.get(url,headers={'User-Agent': 'Mozilla/5.0'},timeout=10)
     except:
         print(f"The url {url} was not found.")
 
