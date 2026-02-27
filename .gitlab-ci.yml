@@ -6,16 +6,17 @@ stages:
 include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
-  - template: Security/Dependency-Scanning.gitlab-ci.yml 
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
   - template: Security/SAST-IaC.latest.gitlab-ci.yml
 
 variables:
   SECRET_DETECTION_ENABLED: 'true'
   DEPENDENCY_SCANNING_DISABLED: 'false'
   DEPENDENCY_SCANNING_STAGE: dependency-scanning
-
-
-dependency_scanning:
-  stage: dependency-scanning
-  rules:
-    - when: always
+  
+# Explicitly use Python scanner
+gemnasium-python-dependency_scanning:
+  variables:
+    DS_DISABLE_DIND: "false"  # Use Docker-in-Docker for Python scanning
+  before_script:
+    - echo "Running Python dependency scanning..."
