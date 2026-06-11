@@ -1,6 +1,6 @@
 .DS_Store
 .vscode
 .venv
-.idea
+.idea/
 __pycache__/
 *.pyc
