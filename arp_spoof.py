@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # Author Gemstone HashGhost
 
-import scapy.all as scapy 
-import time
 import argparse
+import time
+
+import scapy.all as scapy
+
 
 def get_arguments():
     parser =  argparse.ArgumentParser(
